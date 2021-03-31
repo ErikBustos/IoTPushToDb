@@ -7,6 +7,7 @@ require('dotenv').config();
 const CLOUDANT_URL = process.env.CLOUDANT_URL;
 const CLOUDANT_APIKEY = process.env.CLOUDANT_APIKEY;
 
+console.log("-------->Cloudant url " + CLOUDANT_URL);
 
 const authenticator = new IamAuthenticator({
     apikey: CLOUDANT_APIKEY
