@@ -4,8 +4,10 @@ const { CloudantV1 } = require('@ibm-cloud/cloudant');
 const { IamAuthenticator } = require('ibm-cloud-sdk-core');
 require('dotenv').config();
 
-const CLOUDANT_URL = process.env.CLOUDANT_URL;
-const CLOUDANT_APIKEY = process.env.CLOUDANT_APIKEY;
+const CLOUDANT_URL = process.env.CLOUDANT_URL || 
+    'https://32a29eca-18ab-46e2-a1f8-d7c2314f4d11-bluemix.cloudantnosqldb.appdomain.cloud';
+const CLOUDANT_APIKEY = process.env.CLOUDANT_APIKEY || 
+    '24bxrhMSC5Ww0JY5S33x-WAL_sJ5AqM54W8WPWp_t0Wl';
 
 console.log("-------->Cloudant url " + CLOUDANT_URL);
 
