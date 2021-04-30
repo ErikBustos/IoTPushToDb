@@ -6,7 +6,6 @@ const apiGatewayURL = process.env.APIGATEWAYURL || 'https://6qffju9y55.execute-a
 
 router.post('/pushSensorDatatoDB', async (req, res) => {
     const { sensorData, macid } = req.body;
-
     let sensorDataIDresponse, sensorDataArray, responseJson, requestJson ;
 
     //Push sensors Data. Save the sensorDataID
@@ -20,7 +19,8 @@ router.post('/pushSensorDatatoDB', async (req, res) => {
         sensorDataIDresponse = json.sensorDataId;
     })
     .catch(err => console.log(err));
-    
+    console.log(sensorDataIDresponse)
+
     requestJson = {
         "macid": macid
     }
@@ -35,6 +35,7 @@ router.post('/pushSensorDatatoDB', async (req, res) => {
         sensorDataArray = json.data;
     })
     .catch(err => console.log(err));
+    console.log(sensorDataArray)
 
     requestJson = {
         "macid": macid,
@@ -56,7 +57,7 @@ router.post('/pushSensorDatatoDB', async (req, res) => {
         message: "Added sensor data and updated sensor information",
         newsensorDataId : sensorDataIDresponse
     }
-
+    console.log(responseJson)
     res.status(201).json(responseJson);
 })
 

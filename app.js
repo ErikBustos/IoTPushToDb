@@ -4,6 +4,7 @@ const cors = require('cors')
 const apiRouter = require('./routes/apiRoute');
 const apiRouterAWS = require('./routes/apiRouteAWS');
 const authRouter = require('./routes/authRouter');
+const apiQueries = require('./routes/apiQueries');
 
 
 require('dotenv').config();
@@ -35,5 +36,6 @@ app.post('/pushdata1',(req,res) =>{
 app.use('/api',apiRouter);
 app.use('/api',apiRouterAWS);
 app.use('/auth',authRouter);
+app.use('/consume',apiQueries);
 // iniciamos nuestro server
 app.listen(PORT,HOST, () => { console.log(`Server listening on port ${PORT} and host ${HOST}`); })
